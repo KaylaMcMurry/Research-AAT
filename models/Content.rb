@@ -3,20 +3,29 @@ require 'mongoid'
 class Content
 	include Mongoid::Document
 
-	field :userid, type: String
-	field :ip, type: String
-	field :contentid, type: String
-	field :content, type: String
-	field :time, type: String
+	field :uid, as: :userid
+	field :ip
+	field :cid, as: :contentid
+	field :c, as: :content
+	field :t, as: :time, type: Time
+    embeds_many :metrics 
 end
 
 class Metric
     include Mongoid::Document
 
-    field :metricid, type: String
-    field :metricstring, type: String
-    field :userid, type: String
-    field :ip, type: String
-    field :codecontent, type: String
-    field :codetime, type: String
+    field :mid, as: :metricid
+    field :ms, as: :metricstring
+    field :uid, as: :userid
+    field :ip
+    field :cc, as: :codecontent
+    field :ct, as: :codetime, type: Time
+    embedded_in :content
 end
+
+# access as...
+# band = Band.new(name: "Placebo")
+# band.attributes #=> { "n" => "Placebo" }
+
+# criteria = Band.where(name: "Placebo")
+# criteria.selector #=> { "n" => "Placebo" }

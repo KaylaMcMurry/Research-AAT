@@ -1,15 +1,14 @@
 require 'rubygems'
 require 'sinatra'
-require 'mongoid'
+require 'rails/mongoid'
+require './problem2'
 
-set :environment, ENV['RACK_ENV'].to_sym
-disable :run, :reload
-
-require './thing.rb'
-class Application
-	configure do
-		Mongoid.load! 'mongoid.yml'
-	end
+configure do
+    Mongoid.load!(Rails.root.join("config", "mongoid.yml"))
+    #Mongoid.purge!
 end
 
-run Application.new
+set :environment, Sinatra::Base.environment
+disable :run, :reload
+
+run Sinatra::Application

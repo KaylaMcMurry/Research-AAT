@@ -1,4 +1,5 @@
 <html>
+	<title>Python Quiz</title>
 	<head>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script>		
@@ -27,7 +28,7 @@
 						success: function(result) {}
 					});
 				}
-			}, 6000);
+			}, 5000);
 		
 			function formatCode()
 			{
@@ -84,20 +85,16 @@
     		<div id = "codeSpace">
 			<form action="/execute" method="post" id = "codeForm">
 				<h2>Please enter a valid user ID first. When you are done with your quiz, please submit it by hitting the "Finish" button.</h2>
-				User ID: <input id="userid" type="text" name="userid" value="" onkeyup = checkID()> </input>
-				<br>
-				<br>
-				<input type="button" value="Finish" onclick = "submitcode(); return false;">
-				<br>
+				User ID: <input id="userid" type="text" name="userid" value="" onkeyup = checkID()> </input> <input type="button" style="width: 50px; background-color: white; border-color: red" value="Finish" onclick = "submitcode(); return false;">
 				<div id="options" >
-                        		Change theme:
-                        		<select id="select_theme" onchange="change_theme();">
-                                		<option value="idle_fingers" selected>idle_fi$
-                                		<option value="merbivore">merbivore</option>
-                                		<option value="xcode">xcode</option>
-                        		</select>
-                		</div>
-				<div id="code">
+            		Change theme:
+            		<select id="select_theme" onchange="change_theme();">
+                    		<option value="idle_fingers" selected>idle_fi$
+                    		<option value="merbivore">merbivore</option>
+                    		<option value="xcode">xcode</option>
+            		</select>
+                </div>
+				<div id="code" style = "position: absolute">
 					<div id="editor" style="width:800px;height:500px;border:1px solid black;position:absolute;z-index:1;" > #write your code here </div>
 					<div id="modal" style="width:800px;height:500px;border:1px solid black;position:absolute;z-index:2;" > &nbsp;</div>
 

@@ -1,13 +1,18 @@
 development:
-  sessions:
+  clients:
     default:
-      database: quizcontent
+      database: mongoid
       hosts:
         - localhost:27017
-
 production:
   sessions:
     default:
-      database: quizcontent
+      database: mongoid
+      hosts:
+        - localhost:27017
+test:
+  clients:
+    default:
+      database: mongoid
       hosts:
         - localhost:27017
